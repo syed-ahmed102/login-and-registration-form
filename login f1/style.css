@@ -1,0 +1,157 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1d1f21; /* Dark background for neon effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent overflow */
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 500px; /* Fixed height for the wrapper */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Hide overflow for sliding effect */
+    background: rgba(40, 44, 52, 0.9); /* Slightly transparent dark background */
+}
+
+.card {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for sliding effect */
+}
+
+.login-form,
+.content {
+    flex: 1; /* Both forms take equal space */
+    padding: 20px;
+    min-width: 400px; /* Ensure both forms have the same width */
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease; /* Fade effect */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; /* White color for headings */
+}
+
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 40px; /* Added padding for icons */
+    border: 2px solid #444; /* Dark border */
+    border-radius: 5px;
+    font-size: 16px;
+    background: #282c34; /* Dark input background */
+    color: #ffffff; /* White text */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for glowing effect */
+}
+
+.input-group input::placeholder {
+    color: #aaa; /* Placeholder text color */
+}
+
+.input-group input:focus {
+    border-color: #ff4081; /* Neon pink border on focus */
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.5); /* Glowing effect on focus */
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Icon color */
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4081; /* Neon pink button */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative; /* Positioning context for glowing effect */
+    overflow: hidden; /* Hide overflow */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 64, 129, 0.2);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.btn:hover {
+    background-color: #e63946; /* Slightly darker pink on hover */
+    transform: translateY(-2px);
+}
+
+.btn:hover:before {
+    transform: translate(-50%, -50%) scale(1); /* Glowing effect on hover */
+}
+
+.toggle-text {
+    text-align: center;
+    margin-top: 15px;
+    color: #ffffff; /* White color for toggle text */
+}
+
+.toggle-text a {
+    color: #ff4081; /* Neon pink link color */
+    text-decoration: none;
+}
+
+.toggle-text a:hover {
+    text-decoration: underline;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #ff4081; /* Neon pink for forgot password link */
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Animation for the forms */
+.active {
+    opacity: 1; /* Fully visible */
+    z-index: 1; /* Ensure the active form is on top */
+}
+
+.inactive {
+    opacity: 0; /* Fade out */
+    z-index: 0; /* Ensure inactive form is behind */
+}
